@@ -28,7 +28,7 @@ class Role
 
 
          if ($request->user()->role !== $role) {
-            return redirect('dashboard');
+            return abort('403');
          }
 
          return $next($request);

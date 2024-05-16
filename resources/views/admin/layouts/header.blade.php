@@ -1,9 +1,44 @@
-<!-- Header -->
-<div class="header-bar header-fixed header-app header-bar-detached">
-    {{-- <a data-bs-toggle="offcanvas" data-bs-target="#menu-main" href="#"><i class="bi bi-list color-theme"></i></a> --}}
-    <a href="#" class="header-title color-theme">{{ config('app.name') }}</a>
-    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-color"><i class="bi bi-palette-fill font-13 color-highlight"></i></a>
-    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-bell"><em class="badge bg-highlight ms-1">3</em><i class="font-14 bi bi-bell-fill"></i></a>
-    <a href="#" class="show-on-theme-light" data-toggle-theme><i class="bi bi-moon-fill font-13"></i></a>
-    <a href="#" class="show-on-theme-dark" data-toggle-theme ><i class="bi bi-lightbulb-fill color-yellow-dark font-13"></i></a>
-</div>
+<header>
+    <div class="topbar d-flex align-items-center">
+        <nav class="navbar navbar-expand">
+            <div class="mobile-toggle-menu"><i class='bx bx-menu'></i></div>
+            <div class="search-bar flex-grow-1">
+                <div class="position-relative search-bar-box">
+                    <input type="text" class="form-control search-control" placeholder="Type to search...">
+                    <span class="position-absolute top-50 search-show translate-middle-y"><i class='bx bx-search'></i></span>
+                    <span class="position-absolute top-50 search-close translate-middle-y"><i class='bx bx-x'></i></span>
+                </div>
+            </div>
+            <div class="top-menu ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    @auth
+                    <li class="nav-item dropdown dropdown-large">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="alert-count">
+                                @auth
+                                @php
+                                    $ncount = Auth::user()->unreadNotifications()->count();
+                                @endphp
+                                {{ $ncount }}
+                                @endauth
+                            </span>
+                            <i class='bx bx-bell'></i>
+                        </a>
+                        <!-- Dropdown Notification Content -->
+                    </li>
+
+                    <li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class='bx bx-log-out-circle'></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    @endauth
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

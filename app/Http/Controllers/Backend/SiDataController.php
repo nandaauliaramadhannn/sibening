@@ -41,7 +41,7 @@ class SiDataController extends Controller
     {
         $user = $request->user();
 
-        $sidata = SiData::where('user_id', $user->id)->paginate(10);
+        $sidata = SiData::where('user_id', $user->id)->paginate(1);
         return view('user.data._index',compact('sidata','user'));
     }
 

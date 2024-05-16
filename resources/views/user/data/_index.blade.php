@@ -31,22 +31,23 @@
             </div>
         </div>
     </div>
-    {{ $sidata->links() }}
+    {{-- {{ $sidata->links() }} --}}
+    {{ $sidata->links('admin.layouts.pagination') }}
 </div>
 @endsection
 @push('js')
 <script>
-$(document).ready(function() {
-    $('#dataTable').DataTable({
-        "paging": false,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true
-    });
-});
+// $(document).ready(function() {
+//     $('#dataTable').DataTable({
+//         "paging": false,
+//         "lengthChange": false,
+//         "searching": true,
+//         "ordering": true,
+//         "info": true,
+//         "autoWidth": false,
+//         "responsive": true
+//     });
+// });
 </script>
 
 @endpush

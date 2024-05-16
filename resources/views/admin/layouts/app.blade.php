@@ -1,64 +1,144 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-<title>{{ config('app.name') }}</title>
-<link rel="stylesheet" type="text/css" href="{{ asset('styles/bootstrap.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('fonts/bootstrap-icons.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('styles/style.css') }}">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="manifest" href="{{ asset('_manifest.json') }}">
-<meta id="theme-check" name="theme-color" content="#FFFFFF">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('app/icons/icon-192x192.png') }}"></head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="{{ asset('adminbackend/assets/images/favicon-32x32.png') }}" type="image/png" />
 
-<body class="theme-light">
+	<link href="{{ asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
 
-<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 
-<div id="page">
+	<!--plugins-->
+	<link href="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
+	<link href="{{ asset('adminbackend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+	<link href="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+	<link href="{{ asset('adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+	<!-- loader-->
+	<link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
+	<script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script>
+	<!-- Bootstrap CSS -->
+	<link href="{{ asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('adminbackend/assets/css/icons.css') }}" rel="stylesheet">
+	<!-- Theme Style CSS -->
+	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/dark-theme.css') }}" />
+	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/semi-dark.css') }}" />
+	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/header-colors.css') }}" />
 
-    @include('admin.layouts.header')
+<!-- DataTable -->
+	<link href="{{ asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+<!-- DataTable-->
+	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
-	@include('admin.layouts.footer')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	@include('admin.layouts.main-sidebar')
 
-	@include('admin.layouts.main-highlights')
+	<title>Admin Dashboard</title>
+</head>
 
-	@include('admin.layouts.main-bell')
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<!--sidebar wrapper -->
+		@include('admin.layouts.sidebar')
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		@include('admin.layouts.header')
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			@yield('content')
+		</div>
+		<!--end page wrapper -->
 
-    @yield('content')
 
-	<div class="offcanvas offcanvas-bottom rounded-m offcanvas-detached" id="menu-install-pwa-ios">
-	   <div class="content">
-			 <img src="{{ asset('app/icons/icon-128x128.png') }}" alt="img" width="80" class="rounded-l mx-auto my-4">
-		  <h1 class="text-center font-800 font-20">Add Duo to Home Screen</h1>
-		  <p class="boxed-text-xl">
-			  Install Duo on your home screen, and access it just like a regular app. Open your Safari menu and tap "Add to Home Screen".
-		  </p>
-		   <a href="#" class="pwa-dismiss close-menu gradient-blue shadow-bg shadow-bg-s btn btn-s btn-full text-uppercase font-700  mt-n2" data-bs-dismiss="offcanvas">Maybe Later</a>
-	   </div>
-   </div>
+		<!--start overlay-->
+		<div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		@include('admin.layouts.footer')
+	</div>
+	<!--end wrapper-->
+	<!--start switcher-->
 
-   <div class="offcanvas offcanvas-bottom rounded-m offcanvas-detached" id="menu-install-pwa-android">
-	   <div class="content">
-		   <img src="{{ asset('app/icons/icon-128x128.png') }}" alt="img" width="80" class="rounded-m mx-auto my-4">
-		   <h1 class="text-center font-700 font-20">Install Duo</h1>
-		   <p class="boxed-text-l">
-			   Install Duo to your Home Screen to enjoy a unique and native experience.
-		   </p>
-		   <a href="#" class="pwa-install btn btn-m rounded-s text-uppercase font-900 gradient-highlight shadow-bg shadow-bg-s btn-full">Add to Home Screen</a><br>
-		   <a href="#" data-bs-dismiss="offcanvas" class="pwa-dismiss close-menu color-theme text-uppercase font-900 opacity-50 font-11 text-center d-block mt-n1">Maybe later</a>
-	   </div>
-   </div>
+	<!--end switcher-->
+	<!-- Bootstrap JS -->
+	<script src="{{ asset('adminbackend/assets/js/bootstrap.bundle.min.js') }}"></script>
+	<!--plugins-->
+	<script src="{{ asset('adminbackend/assets/js/jquery.min.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/chartjs/js/Chart.min.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/jquery-knob/excanvas.js') }}"></script>
+	<script src="{{ asset('adminbackend/assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
+	  <script>
+		  $(function() {
+			  $(".knob").knob();
+		  });
+	  </script>
+	  <script src="{{ asset('adminbackend/assets/js/index.js') }}"></script>
+	  <script src="{{ asset('adminbackend/assets/js/validate.min.js') }}"></script>
 
-</div>
-<!--End of Page ID-->
+<!--Datatable-->
+<script src="{{ asset('adminbackend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		  } );
+	</script>
+<!--Datatable-->
 
-<script src="{{ asset('scripts/bootstrap.min.js') }}"></script>
-<script src="{{ asset('scripts/custom.js') }}"></script>
+	<!--app JS-->
+	<script src="{{ asset('adminbackend/assets/js/app.js') }}"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
+
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
+
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
+
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break;
+ }
+ @endif
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ <script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>
+
+ <script src="{{ asset('adminbackend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
+
+ 	<script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+	</script>
+
+	<script>
+		tinymce.init({
+		  selector: '#mytextarea'
+		});
+	</script>
+
 </body>
+
+</html>
