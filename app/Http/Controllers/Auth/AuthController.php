@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\TelegramController;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -54,17 +55,21 @@ class AuthController extends Controller
             'no_hp' => ['required', 'numeric'],
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role'  => 'user',
+            'role' => 'user',
             'no_hp' => $request->no_hp,
         ]);
+        $telegramController = new TelegramController();
+        $message = "Pengguna baru telah mendaftar.\nUsername: {$user->name}\nEmail: {$user->email}\nNo HP: {$user->no_hp}";
+        $telegramController->sendTelegramMessage($message);
+
         $notification = array(
             'message' => 'Registrasi Successfully',
             'alert-type' => 'success'
-          );
+        );
 
         return redirect()->route('user.dashboard')->with($notification);
     }
