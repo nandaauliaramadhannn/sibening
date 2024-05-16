@@ -12,11 +12,9 @@
             </p>
             <div class="row mb-n3 pt-4">
                 <div class="col-12">
-                    <i class="bi bi-lightning-charge color-yellow-dark font-50 d-block pb-2"></i>
+                    <i class="bi bi-bar-chart-line color-yellow-dark font-50 d-block pb-2"></i>
                     <h5 class="pt-2">{{ $countdata }}</h5>
-                    <p>
-                        Ready when you are. Tap and enjoy.
-                    </p>
+                    <p></p>
                 </div>
             </div>
         </div>

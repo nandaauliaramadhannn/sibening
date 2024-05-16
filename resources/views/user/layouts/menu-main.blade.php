@@ -4,7 +4,7 @@
 		<a href="#" data-bs-dismiss="offcanvas" class="icon icon-xs bg-theme rounded-s color-theme float-end"><i class="bi bi-caret-left-fill"></i></a>
 	</div>
 	<div class="card-bottom p-3">
-		<h1 class="color-white font-20 font-700 mb-n2">{{ str_replace('_', '-', app()->getLocale()) }}</h1>
+		<h1 class="color-white font-20 font-700 mb-n2">{{ config('app.name') }}</h1>
 		<p class="color-white font-12 opacity-70 mb-n1">Bootstrap 5 Mobile PWA</p>
 	</div>
 	<div class="card-overlay bg-gradient-fade rounded-0"></div>
