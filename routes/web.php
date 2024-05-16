@@ -43,10 +43,11 @@ Route::middleware(['auth','role:user'])->group(function () {
         return view('user.layouts.menu-bell');
     })->name('user.menu-bell');
     // End Menu
-    
+
     Route::get('backend/user-dashboard',[UserController::class, 'ViewDashbaord'])->name('user.dashboard');
     Route::controller(SiDataController::class)->group(function () {
         Route::get('backend/user-dashboard/my-data', 'ViewData')->name('user.data.index');
+        Route::get('backend/user-dashboard/getdata', 'getData')->name('user.data.get');
         Route::get('backend/user-dashboard/my-data/create', 'CreateData')->name('user.data.create');
         Route::post('backend/user-dashboard/my-data/buat', 'StoreData')->name('user.data.store');
     });

@@ -9,14 +9,39 @@ use App\Models\SiData;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\DataTables;
 
 class SiDataController extends Controller
 {
+
+    // public function getData(Request $request)
+    // {
+    //     $user = $request->user();
+    //     $sidata = SiData::where('user_id', $user->id)->paginate(10);
+
+    //     return DataTables::of($sidata)
+    //         ->addColumn('action', function ($item) {
+    //             return '<div class="col-4">
+    //                         <a class="btn btn-3d bg-red-light border-blue-dark" href="#">Hapus</a>
+    //                     </div>
+    //                     <div class="col-4">
+    //                         <a class="btn btn-3d bg-blue-light border-yellow-dark" href="#">Edit</a>
+    //                     </div>';
+    //         })
+    //         ->editColumn('sasaran', function ($item) {
+    //             return $item->sasaran == 1 ? "resiko keluarga stunting" : "anak stunting";
+    //         })
+    //         ->editColumn('sumber_anggaran', function ($item) {
+    //             return $item->sumber_anggaran == 1 ? "no pemerintah" : "pemerintah";
+    //         })
+    //         ->make(true);
+
+    // }
     public function ViewData(Request $request)
     {
         $user = $request->user();
 
-        $sidata = SiData::where('user_id', $user->id)->latest()->get();
+        $sidata = SiData::where('user_id', $user->id)->paginate(10);
         return view('user.data._index',compact('sidata','user'));
     }
 
