@@ -14,29 +14,39 @@ use Yajra\DataTables\DataTables;
 class SiDataController extends Controller
 {
 
-    // public function getData(Request $request)
-    // {
-    //     $user = $request->user();
-    //     $sidata = SiData::where('user_id', $user->id)->paginate(10);
+    public function Grafik(Request $request)
+    {
+        $user = $request->user();
+        $sidata = SiData::where('user_id', $user->id)->orderBy('created_at', 'asc')->get();
 
-    //     return DataTables::of($sidata)
-    //         ->addColumn('action', function ($item) {
-    //             return '<div class="col-4">
-    //                         <a class="btn btn-3d bg-red-light border-blue-dark" href="#">Hapus</a>
-    //                     </div>
-    //                     <div class="col-4">
-    //                         <a class="btn btn-3d bg-blue-light border-yellow-dark" href="#">Edit</a>
-    //                     </div>';
-    //         })
-    //         ->editColumn('sasaran', function ($item) {
-    //             return $item->sasaran == 1 ? "resiko keluarga stunting" : "anak stunting";
-    //         })
-    //         ->editColumn('sumber_anggaran', function ($item) {
-    //             return $item->sumber_anggaran == 1 ? "no pemerintah" : "pemerintah";
-    //         })
-    //         ->make(true);
+        $monthlyData = [];
 
-    // }
+        foreach ($sidata as $item) {
+            $month = date('Y-m', strtotime($item->created_at)); // Menggunakan created_at
+
+            if (!isset($monthlyData[$month])) {
+                $monthlyData[$month] = [
+                    'month' => $month,
+                    'total' => 0
+                ];
+            }
+
+            $monthlyData[$month]['total']++;
+        }
+
+        $labels = [];
+        $data = [];
+        foreach ($monthlyData as $monthData) {
+            $labels[] = date('F ', strtotime($monthData['month']));
+            $data[] = $monthData['total'];
+        }
+
+        return response()->json([
+            'labels' => $labels,
+            'data' => $data
+        ]);
+    }
+
     public function ViewData(Request $request)
     {
         $user = $request->user();

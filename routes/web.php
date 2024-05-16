@@ -41,6 +41,17 @@ Route::middleware(['auth','role:admin'])->group(function () {
     // End Menu
 
     Route::get('backend/admin-dashboard', [AdminController::class, 'ViewDashboard'])->name('admin.dashboard');
+    Route::get('backend/admin-dashboard/data-grafik-kecamatan', [AdminController::class, 'GetChartKecamatan'])->name('admin.getChartKecamatan');
+    Route::get('backend/admin-dashboard/grafik-kecamatan', [AdminController::class, 'ViewChartKecamatan'])->name('admin.viewChartKecamatan');
+
+    Route::get('backend/admin-dashboard/data-grafik-desa', [AdminController::class, 'GetChartDesa'])->name('admin.getChartDesa');
+    Route::get('backend/admin-dashboard/grafik-desa', [AdminController::class, 'ViewChartDesa'])->name('admin.viewChartDesa');
+
+    Route::get('backend/admin-dashboard/data-grafik-keluarga-stunting', [AdminController::class, 'GetChartKeluargaStunting'])->name('admin.getChartKeluargaStunting');
+    Route::get('backend/admin-dashboard/grafik-keluarga-stunting', [AdminController::class, 'ViewChartKeluargaStunting'])->name('admin.viewChartKeluargaStunting');
+
+    Route::get('backend/admin-dashboard/data-grafik-anak-stunting', [AdminController::class, 'GetChartAnakStunting'])->name('admin.getChartAnakStunting');
+    Route::get('backend/admin-dashboard/grafik-anak-stunting', [AdminController::class, 'ViewChartAnakStunting'])->name('admin.viewChartAnakStunting');
 });
 
 Route::middleware(['auth','role:user'])->group(function () {
@@ -59,6 +70,7 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('backend/user-dashboard',[UserController::class, 'ViewDashbaord'])->name('user.dashboard');
     Route::controller(SiDataController::class)->group(function () {
         Route::get('backend/user-dashboard/my-data', 'ViewData')->name('user.data.index');
+        Route::get('backend/user-dashboard/datagrafik/bulan', 'Grafik');
         Route::get('backend/user-dashboard/getdata', 'getData')->name('user.data.get');
         Route::get('backend/user-dashboard/my-data/create', 'CreateData')->name('user.data.create');
         Route::post('backend/user-dashboard/my-data/buat', 'StoreData')->name('user.data.store');
