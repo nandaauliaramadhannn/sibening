@@ -1,144 +1,218 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
-
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--favicon-->
-	<link rel="icon" href="{{ asset('adminbackend/assets/images/favicon-32x32.png') }}" type="image/png" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Duo Mobile PWA Kit</title>
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/bootstrap.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('fonts/bootstrap-icons.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/style.css') }}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="{{ asset('_manifest.json') }}">
+<meta id="theme-check" name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('app/icons/icon-192x192.png') }}"></head>
 
-	<link href="{{ asset('adminbackend/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
+<body class="theme-light">
 
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 
-	<!--plugins-->
-	<link href="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
-	<link href="{{ asset('adminbackend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-	<link href="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-	<link href="{{ asset('adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-	<!-- loader-->
-	<link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
-	<script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script>
-	<!-- Bootstrap CSS -->
-	<link href="{{ asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('adminbackend/assets/css/icons.css') }}" rel="stylesheet">
-	<!-- Theme Style CSS -->
-	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/dark-theme.css') }}" />
-	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/semi-dark.css') }}" />
-	<link rel="stylesheet" href="{{ asset('adminbackend/assets/css/header-colors.css') }}" />
+<div id="page">
 
-<!-- DataTable -->
-	<link href="{{ asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
-<!-- DataTable-->
-	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    @include('user.layouts.header')
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	@include('user.layouts.footer')
 
+	@include('user.layouts.main-sidebar')
 
-	<title>User Dashboard</title>
-</head>
+	@include('user.layouts.main-highlights')
 
-<body>
-	<!--wrapper-->
-	<div class="wrapper">
-		<!--sidebar wrapper -->
-		@include('user.layouts.sidebar')
-		<!--end sidebar wrapper -->
-		<!--start header -->
-		@include('user.layouts.header')
-		<!--end header -->
-		<!--start page wrapper -->
-		<div class="page-wrapper">
-			@yield('content')
+	@include('user.layouts.main-bell')
+
+    <!-- Your Page Content Goes Here-->
+    <div class="page-content header-clear-medium">
+
+		<div class="splide single-slider slider-no-dots slider-no-arrows slider-boxed text-center mt-n2" id="single-slider-3">
+			<div class="splide__track">
+				<div class="splide__list">
+					<div class="splide__slide">
+						<div class="card card-style mx-0 shadow-card shadow-card-m bg-14" data-card-height="230">
+							<div class="card-bottom pb-3 px-3">
+								<h3 class="color-white mb-1">Meet Duo 3.0</h3>
+								<p class="color-white opacity-80 mb-0 mt-n1 font-14">Duo is now Better than Ever!</p>
+							</div>
+							<div class="card-overlay bg-gradient-fade"></div>
+						</div>
+					</div>
+					<div class="splide__slide">
+						<div class="card card-style mx-0 shadow-card shadow-card-m bg-2" data-card-height="230">
+							<div class="card-bottom pb-3 px-3">
+								<h3 class="color-white mb-1">PWA Ready</h3>
+								<p class="color-white opacity-80 mb-0 mt-n1 font-14">Just install it to your Home Screen.</p>
+							</div>
+							<div class="card-overlay bg-gradient-fade"></div>
+						</div>
+					</div>
+					<div class="splide__slide">
+						<div class="card card-style mx-0 shadow-card shadow-card-m bg-7" data-card-height="230">
+							<div class="card-bottom pb-3 px-3">
+								<h3 class="color-white mb-0">Bootstrap 5, Vanilla JS</h3>
+								<p class="color-white opacity-80 mb-0 mt-n1">No jQuery Dependency. Fast and Clean</p>
+							</div>
+							<div class="card-overlay bg-gradient-fade"></div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<!--end page wrapper -->
+
+		<div class="card card-style">
+			<div class="card-body text-center">
+				<h5 class="mb-n1 font-12 color-highlight font-700 text-uppercase pt-1">The Future is Now</h5>
+				<h2>Powerful Features</h2>
+				<p class="mb-3">
+					Duo brings best in class features for your website. Speed and flexibility plus ease of use.
+				</p>
+				<div class="row mb-n3 pt-4">
+					<div class="col-6">
+						<i class="bi bi-lightning-charge color-yellow-dark font-50 d-block pb-2"></i>
+						<h5 class="pt-2">Lightning Fast</h5>
+						<p>
+							Ready when you are. Tap and enjoy.
+						</p>
+					</div>
+					<div class="col-6">
+						<i class="bi bi-award color-red-light font-50 d-block pb-2"></i>
+						<h5 class="pt-2">Best Support</h5>
+						<p>
+							We treat others like we want to be treated.
+						</p>
+					</div>
+					<div class="col-6">
+						<i class="bi bi-phone color-gray-dark font-50 d-block pb-2"></i>
+						<h5 class="pt-2">PWA Ready</h5>
+						<p>
+							Add it to your home screen and enjoy.
+						</p>
+					</div>
+					<div class="col-6">
+						<i class="bi bi-code-slash color-green-light font-50 d-block pb-2"></i>
+						<h5 class="pt-2">Bootstrap 5</h5>
+						<p>
+							Vanilla JavaScript, no jQuery Dependency.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
-		<!--start overlay-->
-		<div class="overlay toggle-icon"></div>
-		<!--end overlay-->
-		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-		<!--End Back To Top Button-->
-		@include('user.layouts.footer')
-	</div>
-	<!--end wrapper-->
-	<!--start switcher-->
+		<div class="card card-style bg-14 text-center shadow-card shadow-card-l" data-card-height="340">
+			<div class="card-center">
+				<h1 class="color-white mb-0">35k+ Happy Customers</h1>
+				<p class="color-white opacity-60 mb-2">No stone left unturned, no aspect overlooked!</p>
+				<p class="text-center color-yellow-dark py-2 mb-2">
+					<i class="bi bi-star-fill color-yellow-light font-20"></i>
+					<i class="bi bi-star-fill color-yellow-light font-24 px-1"></i>
+					<i class="bi bi-star-fill color-yellow-light font-28 px-1"></i>
+					<i class="bi bi-star-fill color-yellow-light font-24 px-1"></i>
+					<i class="bi bi-star-fill color-yellow-light font-20"></i>
+				</p>
+				<div class="splide single-slider slider-no-arrows slider-no-dots" id="single-slider-quotes">
+					<div class="splide__track">
+						<div class="splide__list">
+							<div class="splide__slide">
+								<p class="font-16 font-400 color-white line-height-xl mx-4 mb-0">
+									The best support I have ever had, it's so good I purchased another template. Highlighy Recommended.
+									<br>
+									<a href="#" class="pt-4 color-highlight font-13 mb-0">Envato Customer</a>
+								</p>
+							</div>
+							<div class="splide__slide">
+								<p class="font-16 font-400 color-white line-height-xl mx-4 mb-0">
+									The code is always great with any Enabled template, but it's the customer support that wins me over.<br>
+									<a href="#" class="pt-4 color-highlight font-13 mb-0">Envato Customer</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card-overlay bg-black opacity-70"></div>
+		</div>
 
-	<!--end switcher-->
-	<!-- Bootstrap JS -->
-	<script src="{{ asset('adminbackend/assets/js/bootstrap.bundle.min.js') }}"></script>
-	<!--plugins-->
-	<script src="{{ asset('adminbackend/assets/js/jquery.min.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/chartjs/js/Chart.min.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
-    <script src="{{ asset('adminbackend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/jquery-knob/excanvas.js') }}"></script>
-	<script src="{{ asset('adminbackend/assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
-	  <script>
-		  $(function() {
-			  $(".knob").knob();
-		  });
-	  </script>
-	  {{-- <script src="{{ asset('adminbackend/assets/js/index.js') }}"></script> --}}
-	  <script src="{{ asset('adminbackend/assets/js/validate.min.js') }}"></script>
+		<div class="card card-style">
+			<div class="content px-2 text-center">
+				<h5 class="mb-n1 font-12 color-highlight font-700 text-uppercase">Things we do</h5>
+				<h2>Featured Projects</h2>
+				<p class="mb-3">
+					Products we are proud to showcase and show off to the world. We think you'll love them!
+				</p>
+				<div class="row text-center row-cols-3 mb-n1">
+					<a class="col p-1" data-gallery="gallery-1" href="images/pictures/7t.jpg" title="Vynil and Typerwritter">
+						<img src="{{ asset('images/empty.png') }}" data-src="images/pictures/7s.jpg" class="preload-img img-fluid rounded-m" alt="img">
+					</a>
+					<a class="col p-1" data-gallery="gallery-1" href="images/pictures/23t.jpg" title="Cream Cookie">
+						<img src="{{ asset('images/empty.png') }}" data-src="images/pictures/23s.jpg" class="preload-img img-fluid rounded-m" alt="img">
+					</a>
+					<a class="col p-1" data-gallery="gallery-1" href="images/pictures/3t.jpg" title="Cookies and Flowers">
+						<img src="{{ asset('images/empty.png') }}" data-src="images/pictures/3s.jpg" class="preload-img img-fluid rounded-m" alt="img">
+					</a>
+					<a class="col p-1" data-gallery="gallery-1" href="images/pictures/11t.jpg" title="Vynil and Typerwritter">
+						<img src="{{ asset('images/empty.png') }}" data-src="images/pictures/11s.jpg" class="preload-img img-fluid rounded-m" alt="img">
+					</a>
+					<a class="col p-1" data-gallery="gallery-1" href="images/pictures/5t.jpg" title="Cream Cookie">
+						<img src="{{ asset('images/empty.png') }}" data-src="images/pictures/5s.jpg" class="preload-img img-fluid rounded-m" alt="img">
+					</a>
+					<a class="col p-1" data-gallery="gallery-1" href="images/pictures/15t.jpg" title="Cookies and Flowers">
+						<img src="{{ asset('images/empty.png') }}" data-src="images/pictures/14s.jpg" class="preload-img img-fluid rounded-m" alt="img">
+					</a>
+				</div>
+			</div>
+		</div>
 
-<!--Datatable-->
-<script src="{{ asset('adminbackend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-<script>
-		$(document).ready(function() {
-			$('#example').DataTable();
-		  } );
-	</script>
-<!--Datatable-->
+		<div class="card card-style py-3">
+			<div class="content px-2 text-center">
+				<h5 class="mb-n1 font-12 color-highlight font-700 text-uppercase">Time to Go Mobile</h5>
+				<h2>Get Duo Mobile Today</h2>
+				<p class="mb-3">
+					Start your next project with Duo and enjoy the power of a Progressive Web App.
+				</p>
+				<a href="https://1.envato.market/2ryjKA" target="_blank" class="default-link btn btn-m rounded-s gradient-highlight shadow-bg shadow-bg-s px-5 mb-0 mt-2">Get Duo Now</a>
+			</div>
+		</div>
 
-	<!--app JS-->
-	<script src="{{ asset('adminbackend/assets/js/app.js') }}"></script>
+    </div>
+	<!-- End of Page Content-->
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<div class="offcanvas offcanvas-bottom rounded-m offcanvas-detached" id="menu-install-pwa-ios">
+	   <div class="content">
+			 <img src="{{ asset('app/icons/icon-128x128.png') }}" alt="img" width="80" class="rounded-l mx-auto my-4">
+		  <h1 class="text-center font-800 font-20">Add Duo to Home Screen</h1>
+		  <p class="boxed-text-xl">
+			  Install Duo on your home screen, and access it just like a regular app. Open your Safari menu and tap "Add to Home Screen".
+		  </p>
+		   <a href="#" class="pwa-dismiss close-menu gradient-blue shadow-bg shadow-bg-s btn btn-s btn-full text-uppercase font-700  mt-n2" data-bs-dismiss="offcanvas">Maybe Later</a>
+	   </div>
+   </div>
 
-<script>
- @if(Session::has('message'))
- var type = "{{ Session::get('alert-type','info') }}"
- switch(type){
-    case 'info':
-    toastr.info(" {{ Session::get('message') }} ");
-    break;
+   <div class="offcanvas offcanvas-bottom rounded-m offcanvas-detached" id="menu-install-pwa-android">
+	   <div class="content">
+		   <img src="{{ asset('app/icons/icon-128x128.png') }}" alt="img" width="80" class="rounded-m mx-auto my-4">
+		   <h1 class="text-center font-700 font-20">Install Duo</h1>
+		   <p class="boxed-text-l">
+			   Install Duo to your Home Screen to enjoy a unique and native experience.
+		   </p>
+		   <a href="#" class="pwa-install btn btn-m rounded-s text-uppercase font-900 gradient-highlight shadow-bg shadow-bg-s btn-full">Add to Home Screen</a><br>
+		   <a href="#" data-bs-dismiss="offcanvas" class="pwa-dismiss close-menu color-theme text-uppercase font-900 opacity-50 font-11 text-center d-block mt-n1">Maybe later</a>
+	   </div>
+   </div>
 
-    case 'success':
-    toastr.success(" {{ Session::get('message') }} ");
-    break;
+</div>
+<!--End of Page ID-->
 
-    case 'warning':
-    toastr.warning(" {{ Session::get('message') }} ");
-    break;
-
-    case 'error':
-    toastr.error(" {{ Session::get('message') }} ");
-    break;
- }
- @endif
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
- <script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>
-
- <script src="{{ asset('adminbackend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
-
- 	{{-- <script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
-	</script> --}}
-
-	{{-- <script>
-		tinymce.init({
-		  selector: '#mytextarea'
-		});
-	</script> --}}
-
+<script src="{{ asset('scripts/bootstrap.min.js') }}"></script>
+<script src="{{ asset('scripts/custom.js') }}"></script>
 </body>
-
-</html>
