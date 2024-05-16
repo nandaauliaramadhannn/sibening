@@ -12,6 +12,7 @@ class AdminController extends Controller
     {
         $kegcountstunting = SiData::where('sasaran','1')->count();
         $kegcountkeluarga = SiData::where('sasaran','2')->count();
+        $slider = SiData::latest()->limit(3)->get();
 
 //         $kecamatan = $request->kecamatan();
 //         $desa = $request()->desa();
@@ -31,6 +32,6 @@ class AdminController extends Controller
 // }
 
 
-        return view('admin.dashboard',compact('kegcountstunting','kegcountkeluarga'));
+        return view('admin.dashboard',compact('kegcountstunting','kegcountkeluarga','slider'));
     }
 }

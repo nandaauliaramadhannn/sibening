@@ -28,6 +28,18 @@ Route::get('get/list/data/kec/desa/{kecamatan}', [DataController::class, 'getDes
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth','role:admin'])->group(function () {
+    // Start Menu
+    Route::get('backend/admin-dashboard/menu-main', function(){
+        return view('admin.layouts.menu-main');
+    })->name('admin.menu-main');
+    Route::get('backend/admin-dashboard/menu-highlights', function(){
+        return view('admin.layouts.menu-highlights');
+    })->name('admin.menu-highlights');
+    Route::get('backend/admin-dashboard/menu-bell', function(){
+        return view('admin.layouts.menu-bell');
+    })->name('admin.menu-bell');
+    // End Menu
+
     Route::get('backend/admin-dashboard', [AdminController::class, 'ViewDashboard'])->name('admin.dashboard');
 });
 
