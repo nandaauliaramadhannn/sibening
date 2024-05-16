@@ -27,7 +27,7 @@
                 Create Modern, powerful charts using Apex. The best plugin for exquisite Charts.
             </p>
         </div>
-        <div id="charts-data-1" class="chart"></div>
+        <div id="charts-demo-1" class="chart"></div>
     </div>
 </div>
 <!-- End of Page Content-->
@@ -68,7 +68,7 @@
             }
         }
 
-        var chartDemo1 = new ApexCharts(document.querySelector("#charts-data-1"), optionsChart1); // Menggunakan document.querySelector karena kita hanya mengambil satu elemen dengan id tertentu
+        var chartDemo1 = new ApexCharts(document.querySelector("#charts-demo-1"), optionsChart1); // Menggunakan document.querySelector karena kita hanya mengambil satu elemen dengan id tertentu
         chartDemo1.render();
     });
     </script>
