@@ -1,44 +1,40 @@
-<header>
-    <div class="topbar d-flex align-items-center">
-        <nav class="navbar navbar-expand">
-            <div class="mobile-toggle-menu"><i class='bx bx-menu'></i></div>
-            <div class="search-bar flex-grow-1">
-                <div class="position-relative search-bar-box">
-                    <input type="text" class="form-control search-control" placeholder="Type to search...">
-                    <span class="position-absolute top-50 search-show translate-middle-y"><i class='bx bx-search'></i></span>
-                    <span class="position-absolute top-50 search-close translate-middle-y"><i class='bx bx-x'></i></span>
-                </div>
-            </div>
-            <div class="top-menu ms-auto">
-                <ul class="navbar-nav align-items-center">
-                    @auth
-                    <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="alert-count">
-                                @auth
-                                @php
-                                    $ncount = Auth::user()->unreadNotifications()->count();
-                                @endphp
-                                {{ $ncount }}
-                                @endauth
-                            </span>
-                            <i class='bx bx-bell'></i>
-                        </a>
-                        <!-- Dropdown Notification Content -->
-                    </li>
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
 
-                    <li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class='bx bx-log-out-circle'></i>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                    @endauth
+      <h1 class="logo"><a href="index.html">OnePage</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          {{-- <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto o" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
-            </div>
-        </nav>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li> --}}
+          <li><a class="getstarted scrollto" href="{{ route('logout') }}" method="post">Logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
-</header>
+  </header>
