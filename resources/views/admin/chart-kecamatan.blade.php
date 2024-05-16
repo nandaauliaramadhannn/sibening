@@ -68,25 +68,69 @@ async function getChart() {
 
 getChart();
 
+// $(document).ready(function() {
+//     $('.select2').select2({
+//         placeholder: 'Pilih Tahun',
+//         allowClear: true,
+//         ajax: {
+//             url: "{{route('admin.GetTahunStunting')}}",
+//             dataType: 'json',
+//             delay: 250,
+//             data: function(params) {
+//                 return {
+//                     q: params.term
+//                 };
+//             },
+//             processResults: function(data) {
+//                 return {
+//                     results: data
+//                 };
+//             },
+//             cache: true
+//         },
+//         minimumInputLength: 1
+//     });
+// });
+
+async function fetchData(searchTerm = '') {
+    const response = await fetch(`{{route('admin.GetTahunStunting')}}?q=${searchTerm}`);
+    const data = await response.json();
+     return data;
+}
+
+async function populateSelect(searchTerm = '') {
+    const select = $('#tahun');
+    const data = await fetchData(searchTerm);
+    // Clear existing options
+    select.empty();
+
+    // Populate options
+    data.forEach(item => {
+        const option = new Option(item.text, item.id);
+        select.append(option);
+    });
+
+    // Initialize select2
+    select.select2();
+}
+
 $(document).ready(function() {
-    $('.select2').select2({
+    $('#tahun').select2({
+        placeholder: 'Pilih Tahun',
+        allowClear: true,
+        minimumInputLength: 1, // Minimum length of the search term to trigger search
+        delay: 250, // Delay in milliseconds before making a search request
         ajax: {
             url: "{{route('admin.GetTahunStunting')}}",
             dataType: 'json',
-            delay: 250,
-            data: function(params) {
+            delay: 250, // Same delay as above, but for select2's internal AJAX request
+            processResults: function (data) {
                 return {
-                    q: params.term
+                    results: data.map(user => ({ id: user.id, text: user.text }))
                 };
             },
-            processResults: function(data) {
-                return {
-                    results: data
-                };
-            },
-            cache: true
-        },
-        minimumInputLength: 1
+            cache: true // Cache the results to avoid unnecessary requests
+        }
     });
 });
 
