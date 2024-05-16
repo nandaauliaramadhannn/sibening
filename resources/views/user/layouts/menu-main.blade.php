@@ -35,7 +35,7 @@
 </div>
 
 <span class="menu-divider">NAVIGATION</span>
-<div class="menu-list">
+<div class="menu-list d-none">
 	<div class="card card-style rounded-m p-3 py-2 mb-0">
 		<a href="#" id="nav-homes"><i class="gradient-blue shadow-bg shadow-bg-xs bi bi-house-fill"></i><span>Homepage</span><i class="bi bi-chevron-right"></i></a>
 		<a href="#" id="nav-comps"><i class="gradient-red shadow-bg shadow-bg-xs bi bi-gear-fill"></i><span>Components</span><i class="bi bi-chevron-right"></i></a>
@@ -45,8 +45,8 @@
 	</div>
 </div>
 
-<span class="menu-divider mt-4">SETTINGS</span>
-<div class="menu-list">
+<span class="menu-divider mt-4 d-none">SETTINGS</span>
+<div class="menu-list d-none">
 	<div class="card card-style rounded-m p-3 py-2 mb-0">
 		<a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-color">
 			<i class="gradient-highlight shadow-bg shadow-bg-xs bi bi-palette-fill"></i>
@@ -64,8 +64,8 @@
 	</div>
 </div>
 
-<span class="menu-divider mt-4">Messages</span>
-<div class="menu-content px-3">
+<span class="menu-divider mt-4 d-none">Messages</span>
+<div class="menu-content px-3 d-none">
 	<div class="card card-style rounded-m p-2 mx-0 bg-theme mb-0">
 		<div class="menu-list">
 			<a href="#"><img src="{{ asset('images/avatars/6s.png') }}" alt="img" class="gradient-orange"><span class="font-500 color-theme">Olivia Orange</span><em class="badge badge-s bg-red-dark">3</em></a>
@@ -75,8 +75,8 @@
 	</div>
 </div>
 
-<span class="menu-divider mt-4">Latest Updates</span>
-<div class="menu-content px-3">
+<span class="menu-divider mt-4 d-none">Latest Updates</span>
+<div class="menu-content px-3 d-none">
 	<div class="card card-style rounded-m p-2 mx-0 bg-theme">
 		<a href="#">
 			<div class="d-flex">
@@ -122,4 +122,4 @@
 	</div>
 </div>
 
-<p class="text-center mb-0 mt-n3 pb-3 font-9 text-uppercase font-600 color-theme">Made with <i class=" font-9 px-1 bi bi-heart-fill color-red-dark"></i> by Enabled in <span class="copyright-year"></span>.</p>
+<p class="text-center mb-0 mt-n3 pb-3 font-9 text-uppercase font-600 color-theme d-none">Made with <i class=" font-9 px-1 bi bi-heart-fill color-red-dark"></i> by Enabled in <span class="copyright-year"></span>.</p>
