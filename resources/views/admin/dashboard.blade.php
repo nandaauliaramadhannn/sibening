@@ -73,5 +73,18 @@
 </section>
 @endsection
 @push('js')
-    
+<script>
+  $('#card-1').click(function(){
+    location.href = "{{route('admin.viewChartKecamatan')}}"
+  });
+  $('#card-2').click(function(){
+    location.href = "{{route('admin.viewChartDesa')}}"
+  });
+  $('#card-3').click(function(){
+    location.href = "{{route('admin.viewChartKeluargaStunting')}}"
+  });
+  $('#card-4').click(function(){
+    location.href = "{{route('admin.viewChartAnakStunting')}}"
+  });
+</script>
 @endpush

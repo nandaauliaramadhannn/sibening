@@ -52,6 +52,8 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
     Route::get('backend/admin-dashboard/data-grafik-anak-stunting', [AdminController::class, 'GetChartAnakStunting'])->name('admin.getChartAnakStunting');
     Route::get('backend/admin-dashboard/grafik-anak-stunting', [AdminController::class, 'ViewChartAnakStunting'])->name('admin.viewChartAnakStunting');
+
+    Route::get('backend/admin-dashboard/tahun-stunting', [AdminController::class, 'GetTahunStunting'])->name('admin.GetTahunStunting');
 });
 
 Route::middleware(['auth','role:user'])->group(function () {

@@ -16,6 +16,11 @@ class SiData extends Model
         return $this->belongsTo(Kecamatan::class);
     }
 
+    public function desa()
+    {
+        return $this->belongsTo(Desa::class, 'desa_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

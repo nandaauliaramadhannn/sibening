@@ -2,6 +2,11 @@
 @section('content')
 <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row icon-box" id="kembali">
+            <div class="col">
+                <a href="#">Kembali</a>
+            </div>
+          </div>
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
           <h1>GRAFIK</h1>
@@ -11,6 +16,7 @@
 
       <div class="row icon-box">
         <div class="col">
+            <h4><select name="tahun" id="tahun" class="select2" onchange="getChart()" style="width: 100%"></select></h4>
             <canvas id="myChart"></canvas>
             <div id="demo"></div>
         </div>
@@ -20,6 +26,8 @@
 @endsection
 @push('js')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
 const config = {
     type: 'line',
@@ -45,7 +53,7 @@ document.getElementById('myChart').style.height = '300px';
 
 async function getChart() {
     try {
-        const response = await fetch("{{route('admin.getChartKecamatan')}}");
+        const response = await fetch("{{route('admin.getChartKecamatan')}}?tahun="+$('#tahun').val());
         if (response.ok) {
             const jsonData = await response.json();
             config.data = jsonData;
@@ -59,6 +67,32 @@ async function getChart() {
 }
 
 getChart();
+
+$(document).ready(function() {
+    $('.select2').select2({
+        ajax: {
+            url: "{{route('admin.GetTahunStunting')}}",
+            dataType: 'json',
+            delay: 250,
+            data: function(params) {
+                return {
+                    q: params.term
+                };
+            },
+            processResults: function(data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        },
+        minimumInputLength: 1
+    });
+});
+
+$('#kembali').click(function(){
+    location.href = "{{route('admin.dashboard')}}"
+});
 
 </script>
 @endpush
