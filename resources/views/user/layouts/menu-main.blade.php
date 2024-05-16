@@ -1,16 +1,16 @@
 
-<div class="card card-style bg-23 mb-3 rounded-m mt-3" data-card-height="150">
+<div class="card card-style bg-23 mb-3 rounded-m mt-3 d-none" data-card-height="150">
 	<div class="card-top m-3">
 		<a href="#" data-bs-dismiss="offcanvas" class="icon icon-xs bg-theme rounded-s color-theme float-end"><i class="bi bi-caret-left-fill"></i></a>
 	</div>
 	<div class="card-bottom p-3">
-		<h1 class="color-white font-20 font-700 mb-n2">Duo Mobile</h1>
+		<h1 class="color-white font-20 font-700 mb-n2">{{ str_replace('_', '-', app()->getLocale()) }}</h1>
 		<p class="color-white font-12 opacity-70 mb-n1">Bootstrap 5 Mobile PWA</p>
 	</div>
 	<div class="card-overlay bg-gradient-fade rounded-0"></div>
 </div>
 
-<div class="bg-theme mx-3 rounded-m shadow-m mt-3 mb-3">
+<div class="bg-theme mx-3 rounded-m shadow-m mt-3 mb-3 d-none">
 	<div class="d-flex px-2 pb-2 pt-2">
 		<div>
 			<a href="#"><img src="{{ asset('images/pictures/7s.jpg') }}" width="45" class="rounded-s" alt="img"></a>
@@ -34,7 +34,7 @@
 	</div>
 </div>
 
-<span class="menu-divider">NAVIGATION</span>
+<span class="menu-divider d-none">NAVIGATION</span>
 <div class="menu-list d-none">
 	<div class="card card-style rounded-m p-3 py-2 mb-0">
 		<a href="#" id="nav-homes"><i class="gradient-blue shadow-bg shadow-bg-xs bi bi-house-fill"></i><span>Homepage</span><i class="bi bi-chevron-right"></i></a>
