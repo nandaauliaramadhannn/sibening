@@ -21,8 +21,6 @@
             <div id="demo"></div>
         </div>
       </div>
-
-      <select name="" id="mySelect" style="width: 100%"></select>
     </div>
 </section>
 @endsection
